@@ -9,3 +9,22 @@ spring:
     username: sa
     password:
     driverClassName: org.h2.Driver
+    schema: classpath:sql/schema.sql
+    
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create # First drops existing tables and then creates new tables. Set 'ddl-auto' to 'none' to disable auto DDL generation and use only schema.sql
+    show-sql: true
+    defer-datasource-initialization: true # Enables Hibernate automatic schema generation in conjugation with script-based schema creation and data population
+
+  cache:
+    jcache:
+      config:
+      classpath: ehcache.xml
+
+JSONfile:
+    isInitialiseApiDef: true
+
+defaultTimeoutFlag: true
+defaultTimeoutMilliSeconds: 10000
